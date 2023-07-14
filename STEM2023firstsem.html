@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Atomic Bond</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif, ;
+    }
+
+    #container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #bond-diagram {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .atom {
+      width: 150px;
+      height: 150px;
+      background-color: #ddd3d3;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 150px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .ion {
+      font-weight: bold;
+      color: blue;
+    }
+
+    .highlighted {
+      border: 2px solid #00aeff;
+    }
+
+    #element-details {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Atomic Bond</h1>
+
+    
+
+    <h1>SALT</h1>
+    <p>
+      The ionic interaction between sodium (Na) and chlorine (Cl) creates salt, commonly known as sodium chloride (NaCl). Na+ and Cl- ions are created when sodium gives one electron to chlorine in the atomic structure of salt. Because of their opposing charges, the positively charged sodium ion (Na+) and the negatively charged chloride ion (Cl-) are drawn to one another and create a powerful ionic connection.
+
+The sodium ion attracts the chlorine ion by the force of attraction between opposing charges, forming an electrostatic connection between the two elements. The high melting and boiling temperatures of salt, as well as its capacity to conduct electricity when dissolved, are all a result of this ionic connection.
+    </p>
+
+    
+    
+    <div id="bond-diagram">
+      <div id="sodium" class="atom">Na<span class="ion">+</span></div>
+      <div id="chlorine" class="atom">Cl<span class="ion">-</span></div>
+    </div>
+    
+    <div id="element-details">
+      <h2 id="element-name"></h2>
+      <p id="element-description"></p>
+    </div>
+<hr>
+    <h1> ETHANOL </h1>
+    <P>Ethanol, often known as ethyl alcohol, grain alcohol, drinking alcohol, or just alcohol, is an organic substance (abbreviated as EtOH). With the chemical formula C2H6O, it is an alcohol. The formula for this substance is C2H5OH (an ethyl group joined to a hydroxyl group), CH3CH2OH, or C2H5OH. A volatile, flammable, colorless liquid known as ethanol has a distinctive wine-like odor and bitter flavorIt is a euphoric recreational substance that serves as the primary component of alcoholic beverages.
+
+      Natural sources of ethanol include the fermentation of carbohydrates by yeasts or petrochemical processes like ethylene hydration. It has current medicinal uses as an antiseptic, disinfectant, solvent for certain drugs, and an antidote for methanol and ethylene glycol toxicity in addition to its historical usage as a general anesthetic.</P>
+    <div id="bond-diagram">
+      <div id="carbon" class="atom">C</div>
+      <div id="hydrogen1" class="atom">H</div>
+      <div id="hydrogen2" class="atom">H</div>
+      <div id="oxygen" class="atom">O</div>
+      <div id="hydrogen3" class="atom">H</div>
+      <div id="hydrogen4" class="atom">H</div>
+    </div>
+
+    <div id="element-details2">
+      <h2 id="element-name2"></h2>
+      <p id="element-description2"></p>
+    </div>
+    
+    <script>
+      var sodium = {
+        name: "Sodium",
+        description: "Sodium is a chemical element with the symbol Na and atomic number 11. It is a soft, silvery-white, highly reactive metal. Sodium is an alkali metal, being in group 1 of the periodic table."
+      };
+
+      var chlorine = {
+        name: "Chlorine",
+        description: "Chlorine is a chemical element with the symbol Cl and atomic number 17. It is a yellow-green gas at room temperature. Chlorine is an extremely reactive element and a strong oxidizing agent."
+      };
+      
+
+      
+      document.getElementById('sodium').addEventListener('click', showElementDetails.bind(null, sodium));
+      document.getElementById('chlorine').addEventListener('click', showElementDetails.bind(null, chlorine));
+
+     
+      function showElementDetails(element) {
+        var elementName = document.getElementById('element-name');
+        var elementDescription = document.getElementById('element-description');
+
+        elementName.textContent = element.name;
+        elementDescription.textContent = element.description;
+
+        document.getElementById('element-details').style.display = 'block';
+      }
+    </script>
+     <script>
+      var carbon = {
+        name: "Carbon",
+        description: "Carbon is a chemical element with the symbol C and atomic number 6. It is a versatile element that forms the basis of all known living organisms. Carbon has the ability to bond with other carbon atoms, forming long chains and complex structures."
+      };
+
+      var hydrogen = {
+        name: "Hydrogen",
+        description: "Hydrogen is a chemical element with the symbol H and atomic number 1. It is the lightest and most abundant element in the universe. Hydrogen is a colorless, odorless, and highly flammable gas."
+      };
+
+      var oxygen = {
+        name: "Oxygen",
+        description: "Oxygen is a chemical element with the symbol O and atomic number 8. It is a highly reactive nonmetal and an essential component for combustion and respiration. Oxygen gas is colorless, odorless, and tasteless."
+      };
+      function showElementDetails(element) {
+        var elementName = document.getElementById('element-name2');
+        var elementDescription = document.getElementById('element-description2');
+
+        elementName.textContent = element.name;
+        elementDescription.textContent = element.description;
+
+        document.getElementById('element-details2').style.display = 'block';
+      }
+      // Add event listeners to the atoms
+      document.getElementById('carbon').addEventListener('click', showElementDetails.bind(null, carbon));
+      document.getElementById('hydrogen1').addEventListener('click', showElementDetails.bind(null, hydrogen));
+      document.getElementById('hydrogen2').addEventListener('click', showElementDetails.bind(null, hydrogen));
+      document.getElementById('oxygen').addEventListener('click', showElementDetails.bind(null, oxygen));
+      document.getElementById('hydrogen3').addEventListener('click', showElementDetails.bind(null, hydrogen));
+      document.getElementById('hydrogen4').addEventListener('click', showElementDetails.bind(null, hydrogen));
+      </script>
+
+     <script>
+      // Add event listeners to the atoms
+      document.getElementById('sodium').addEventListener('click', highlightAtom);
+      document.getElementById('chlorine').addEventListener('click', highlightAtom);
+      document.getElementById('carbon').addEventListener('click', highlightAtom);
+      document.getElementById('hydrogen1').addEventListener('click', highlightAtom);
+      document.getElementById('hydrogen2').addEventListener('click', highlightAtom);
+      document.getElementById('oxygen').addEventListener('click', highlightAtom);
+      document.getElementById('hydrogen3').addEventListener('click', highlightAtom);
+      document.getElementById('hydrogen4').addEventListener('click', highlightAtom);
+  
+      // Function to highlight the selected atom
+      function highlightAtom() {
+        // Remove the 'highlighted' class from all atoms
+        var atoms = document.getElementsByClassName('atom');
+        for (var i = 0; i < atoms.length; i++) {
+          atoms[i].classList.remove('highlighted');
+        }
+  
+        // Add the 'highlighted' class to the selected atom
+        this.classList.add('highlighted');
+      }
+    </script>
+  </div>
+</body>
+</html>
